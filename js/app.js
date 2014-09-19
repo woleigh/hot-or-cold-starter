@@ -120,7 +120,7 @@ $(document).ready(function(){
   	});
  	
  	/*--- Guess Button Action---*/
-	$(".button").click(function(){
+	$(".button").click(function(event){
 		event.preventDefault();
 		checkShowGuess();
 				
