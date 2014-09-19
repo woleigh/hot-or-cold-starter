@@ -17,10 +17,17 @@ $(document).ready(function(){
   	var numberCheck;
   	var counter = 0;
   	var flag = 0;
+  	var addText =$('#feedback')
 
-  	/*--- Function Declaration---*/
+  	/*--- Function Declaration----------------------------*/
+
+  	/*--- Text Change Function---*/
+  	var changeText = function(sometext){
+  		return addText.text(sometext);
+  	};
 
   	/*--- Append Function---*/
+
   	function appendGuess(){
   		$('#guessList').append('<li>'+ numberGuess +'</li>');
   	}
@@ -33,7 +40,7 @@ $(document).ready(function(){
   		flag = 0;
   		randomGenerate();
   		$('#guessList li').remove();
-  		$('#feedback').text("Make Your Guess!");
+  		changeText("Make Your Guess!");
   	}
   	/*--- Prevent Function---*/
   	function preventSubmit(){
@@ -63,7 +70,7 @@ $(document).ready(function(){
 					numberCheck = Math.abs(numberGuess - numberRandom);
 
 					if (flag === 1) {
-						$('#feedback').text("Start a New Game!");
+						changeText("Start a New Game!");
 						preventSubmit();
 					}
 
@@ -73,40 +80,40 @@ $(document).ready(function(){
 					}
 										
 					else if (numberCheck > 40){
-						$('#feedback').text("Your Guess is Freezing Cold!");
+						 changeText("Your Guess is Freezing Cold!");
 						 appendGuess();
 						 countGuess();
 					}
 					
 					else if (numberCheck > 25){
-						$('#feedback').text("Your Guess is Getting Cold!");
+						changeText("Your Guess is Getting Cold!");
 						appendGuess();
 						countGuess();
 					}
 					else if (numberCheck > 15){
-						$('#feedback').text("Your Guess is Getting Warm!");
+						changeText("Your Guess is Getting Warm!");
 						appendGuess();
 						countGuess();
 					}
 					else if (numberCheck > 5){
-						$('#feedback').text("Your Guess is Getting Hot!");
+						changeText("Your Guess is Getting Hot!");
 						appendGuess();
 						countGuess();
 					}
 					else if (numberCheck > 0){
-						$('#feedback').text("Your Guess is Too Hot!");
+						changeText("Your Guess is Too Hot!");
 						appendGuess();
 						countGuess();
 					}
 					else if (numberGuess === numberRandom){
-						$('#feedback').text("Yay! You Guessed it!!");
+						changeText("Yay! You Guessed it!!");
 						appendGuess();
 						countGuess();
 						flag = 1;
 					}
 				}
 
-	/*--- Button Actions---*/
+	/*--- Button Actions------------------------------------*/
 	/*--- New Game Button Action---*/
 	$('.new').click(function(){
   		newGame();
