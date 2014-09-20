@@ -35,6 +35,7 @@ $(document).ready(function(){
   	/*--- New Game Function---*/
 
   	function newGame(){
+  		playTrumpet();
   		$('#count').text(0);
   		counter = 0;
   		flag = 0;
@@ -72,11 +73,13 @@ $(document).ready(function(){
 					if (flag === 1) {
 						changeText("Start a New Game!");
 						preventSubmit();
+						playError();
 					}
 
 					else if (numberGuess < 1 || numberGuess > 100){
 						alert("Enter a number between 1 and 100");
 						preventSubmit();
+						playError();
 					}
 										
 					else if (numberCheck > 40){
@@ -110,6 +113,7 @@ $(document).ready(function(){
 						appendGuess();
 						countGuess();
 						flag = 1;
+						playOvation();
 					}
 				}
 
@@ -125,8 +129,17 @@ $(document).ready(function(){
 		checkShowGuess();
 				
 	});
+	/*--- Sound Functions---*/
+	 function playOvation(){
+	 	$('#ovation-sound')[0].play();
+	 }
 
-
+	 function playError(){
+	 	$('#error-sound')[0].play();
+	 }
+	 function playTrumpet(){
+	 	$('#trumpet-sound')[0].play();
+	 }
 });
 
 
