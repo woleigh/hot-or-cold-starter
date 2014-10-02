@@ -104,7 +104,7 @@ $(document).ready(function(){
 						countGuess();
 					}
 					else if (numberCheck > 0){
-						changeText("Your Guess is Too Hot!");
+						changeText("Your Guess is freaking Hot!");
 						appendGuess();
 						countGuess();
 					}
