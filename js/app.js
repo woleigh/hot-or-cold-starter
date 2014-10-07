@@ -62,6 +62,11 @@ $(document).ready(function(){
 					$('#count').val(counter).text(counter);
 
 	}
+	/*---Clear Form Function--*/
+	function clearGuess(){
+		$('form').find('input[type=text]').val('');
+	}
+
 	/*--- User Input Compare Function---*/
 
 	function checkShowGuess(){
@@ -121,12 +126,14 @@ $(document).ready(function(){
 	/*--- New Game Button Action---*/
 	$('.new').click(function(){
   		newGame();
+  		clearGuess();
   	});
  	
  	/*--- Guess Button Action---*/
 	$(".button").click(function(event){
 		event.preventDefault();
 		checkShowGuess();
+		clearGuess();
 				
 	});
 	/*--- Sound Functions---*/
